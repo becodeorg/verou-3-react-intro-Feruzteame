@@ -1,16 +1,19 @@
-
+import {Link} from "react-router-dom";
 function Navbar(){
 
     return(
         <>
-            <ul>
-                <li>
-                    <a href="./">Home</a>
-                </li>
-                <li>
-                    <a href="./list">List</a>
-                </li>
-            </ul>
+            <div id="nav">
+                <ul>
+                    <li>
+                        <Link to="/"> Home </Link>
+                    </li>
+                    <li>
+                        <Link to="/list"> List </Link>
+                    </li>
+                </ul>
+            </div>
+
 
         </>
 
