@@ -3,7 +3,15 @@ function Navbar(){
 
     return(
         <>
-            <h1>Navbar</h1>
+            <ul>
+                <li>
+                    <a href="./">Home</a>
+                </li>
+                <li>
+                    <a href="./list">List</a>
+                </li>
+            </ul>
+
         </>
 
     )

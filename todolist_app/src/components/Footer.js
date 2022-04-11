@@ -5,7 +5,9 @@ function Footer(){
 
     return(
         <>
-            <h1>Footer</h1>
+            <div>
+                <p>@AllRightReserved@Todolist.com</p>
+            </div>
         </>
 
     )
