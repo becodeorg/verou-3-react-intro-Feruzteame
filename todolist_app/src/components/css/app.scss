@@ -14,7 +14,7 @@ $backgroundColor: deepskyblue;
 }
 %box{
   width: 60%;
-  margin: 2% 0 0 20%;
+  margin: 2% 0 0 10%;
   padding: 2%;
   height: auto;
   min-height: 300px;
@@ -52,14 +52,20 @@ body{
   // List of to do
 
   #list{
-    @extend %box;
+    width: 40%;
+    margin: 0 0 0 15%;
+    padding: 2%;
+    height: auto;
+    min-height: 300px;
     h2{
-      margin: 2% 0 0 10%;
+      margin: 2% 0 0 5%;
     }
     .todolist{
       display: block;
       padding: 2% 2% 2% 5%;
       border-radius: 10px;
+      width: 200px;
+      margin: 10px;
     }
     .todolist:nth-child(odd){
       background: #eeca05;
@@ -68,9 +74,8 @@ body{
       background: deepskyblue;
     }
   }
-
   // form
-  form{
+  .form{
     @extend %box;
     input{
       margin: 0 0 2% 7% ;

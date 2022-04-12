@@ -14,7 +14,6 @@ function List(){
                     <li className="todolist">list5</li>
                 </ul>
             </div>
-
             <Footer/>
         </>
 
