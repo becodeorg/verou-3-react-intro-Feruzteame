@@ -5,31 +5,25 @@ import React, { useState } from 'react';
 
 function CreateTask() {
 
-    const [task, setTask] = useState({list:""});
+    const [task, setTask] = useState({list:"", time:""});
     const [tasklist, setTaskList] = useState([]);
-
-  
-  
-    const handleChange = (e) => {
-      setTask(e.target.value);
-    };
    
-  
-    const AddTask = () => {
+   const AddTask = () => {
       if (task !== "") {
         const taskDetails = {
           id: Math.floor(Math.random() * 1000),
           value: task
-
         };
         console.log(task)
-       setTaskList([...tasklist, taskDetails]);
-
-        document.getElementById('text').innerText = " "
+       setTaskList(prevState => {
+        return [...prevState, {taskDetails}]
+  });
       }else{
         alert("Please add some text before add")
       }
+      
     };
+  
    return (
        <>
       <div className="form">
@@ -41,14 +35,14 @@ function CreateTask() {
                     type="text"
                     name="list"
                     id="text"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) =>setTask({...task, list: e.target.value}) }
                     placeholder="Add task here..."
                 />
-                <br/>
+                <br/> 
                 <label htmlFor="time">Time</label> <br/>
                 <input 
                    type="time"
-                   onChange={(e) => handleChange(e)}
+                   onChange={(e) =>setTask({...task, time: e.target.value}) }
                    />
                 <br/>
                 <button type="submit" onClick={AddTask}>Add</button>
@@ -59,10 +53,10 @@ function CreateTask() {
                 <ul>
                 {tasklist !== [] ? (
                <ul>
-                  {tasklist.map((t) => (
-                <li className="todolist">
+                  {tasklist.map((list) => (
+                <li className="todolist" key={list.id}>
                      <input type="checkbox"></input>
-                     {t.value}
+                     {task.list} <span>{task.time}</span>
                 </li>
             ))}
           </ul>

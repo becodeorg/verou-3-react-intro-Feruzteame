@@ -54,9 +54,7 @@ body{
   #list{
     width: 40%;
     margin: 0 0 0 15%;
-    padding: 2%;
-    height: auto;
-    min-height: 300px;
+    height: auto;;
     h2{
       margin: 2% 0 0 5%;
     }
@@ -72,6 +70,12 @@ body{
     }
     .todolist:nth-child(even){
       background: deepskyblue;
+    }
+    span{
+      margin-left: 20px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold
     }
   }
   // form
