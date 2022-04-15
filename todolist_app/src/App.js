@@ -5,7 +5,6 @@ import CreateTask from "./components/CreateTask";
 import List from "./components/List";
 import Navbar from "./components/Navbar";
 
-
 const App = () => (
 
     <Router>

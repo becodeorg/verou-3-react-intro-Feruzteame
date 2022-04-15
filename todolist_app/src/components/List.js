@@ -7,7 +7,6 @@ const unique_id = uuid();
     useEffect(() => {
         console.log(props.tasklist)
     })
-
     return(
         <>
         <div id="list">

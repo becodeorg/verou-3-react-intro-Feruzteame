@@ -1,6 +1,6 @@
 
 import Footer from "./Footer";
-import React, { useState,useRef } from 'react';
+import React, { useState,useRef,useEffect } from 'react';
 
 import List from "./List";
 
@@ -13,6 +13,7 @@ function CreateTask() {
     const [tasklist, setTaskList] = useState([]);
    
    const AddTask = () => {
+
       if (task !== "") {
         const taskCurrent = task.current
         const timeCurrent = time.current
@@ -33,6 +34,21 @@ function CreateTask() {
       }
       
     };
+
+    useEffect(() => {
+
+      
+      const data = window.localStorage.getItem('List')
+      if(data){
+        setTaskList(JSON.parse(data))
+        } 
+  },[])
+
+    useEffect(() => {
+      window.localStorage.setItem('List', JSON.stringify(tasklist))
+  },[tasklist])
+
+
    return (
        <>
       <div className="form">
