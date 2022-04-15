@@ -1,21 +1,28 @@
-import Footer from "./Footer";
+import React, {useEffect} from 'react'
+import {v4 as uuid} from "uuid";
 
-function List(){
+
+const List = function(props){
+const unique_id = uuid();
+    useEffect(() => {
+        console.log(props.tasklist)
+    })
 
     return(
         <>
-            <div id="list">
-                <h2>Here is your list</h2>
-                <ul>
-                    <li className="todolist">list1</li>
-                    <li className="todolist">list2</li>
-                    <li className="todolist">list3</li>
-                    <li className="todolist">list4</li>
-                    <li className="todolist">list5</li>
-                </ul>
-            </div>
-            <Footer/>
-        </>
+        <div id="list">
+                {props.tasklist !== [] ? (
+               <ul>
+                  {props.tasklist.map((list) => (
+                <li className="todolist" key={unique_id}>
+                     <input type="checkbox"></input>
+                    {list.task} <span>{list.time}</span>
+                </li>
+            ))}
+          </ul>
+        ) : null}
+       </div>         
+     </>
 
     )
 }

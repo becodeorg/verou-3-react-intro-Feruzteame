@@ -1,12 +1,12 @@
 
 import Footer from "./Footer";
 import React, { useState,useRef } from 'react';
-import {v4 as uuid} from "uuid";
+
+import List from "./List";
 
 
 function CreateTask() {
 
-  const unique_id = uuid();
   const task = useRef();
   const time = useRef();
 
@@ -28,31 +28,18 @@ function CreateTask() {
         taskCurrent.value = "";
         timeCurrent.value = "";
         return newTaskList
-        
-      }else{
+        }else{
         alert("Please add some text before add")
       }
       
     };
-
-
-    const checkIt = ()=>{
-      const style = {
-        color: 'white',
-        fontSize: 200
-      };
-      return style
-    }
-
-  
    return (
        <>
       <div className="form">
           <fieldset>
                 <legend>Fill Your Todolist </legend>
                 <label htmlFor="name">Your List</label> <br/>
-               
-                <input
+               <input
                     type="text"
                     name="list"
                     id="text"
@@ -70,21 +57,8 @@ function CreateTask() {
                
              </fieldset>
       </div>
-      <div id="list">
-                <ul>
-                {tasklist !== [] ? (
-               <ul>
-                  {tasklist.map((list) => (
-                <li className="todolist" key={unique_id}>
-                     <input type="checkbox" onClick={checkIt}></input>
-                    {list.task} <span>{list.time}</span>
-                </li>
-            ))}
-          </ul>
-        ) : null}
-                </ul>
-            </div>
-      <Footer/>
+         <List tasklist={tasklist}/>
+         <Footer/>
       </>
        );
        
