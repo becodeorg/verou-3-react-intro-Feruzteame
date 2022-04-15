@@ -35,10 +35,10 @@ function CreateTask() {
       
     };
 
-    useEffect(() => {
 
-      
-      const data = window.localStorage.getItem('List')
+// local storage
+    useEffect(() => {
+       const data = window.localStorage.getItem('List')
       if(data){
         setTaskList(JSON.parse(data))
         } 
@@ -48,6 +48,7 @@ function CreateTask() {
       window.localStorage.setItem('List', JSON.stringify(tasklist))
   },[tasklist])
 
+// delete item 
 
    return (
        <>
@@ -73,7 +74,7 @@ function CreateTask() {
                
              </fieldset>
       </div>
-         <List tasklist={tasklist}/>
+         <List tasklist={tasklist} />
          <Footer/>
       </>
        );
