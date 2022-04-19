@@ -52,7 +52,7 @@ body{
   // List of to do
 
   #list{
-    width: 40%;
+    width: auto;
     margin: 0 0 0 15%;
     height: auto;;
     h2{
@@ -62,7 +62,8 @@ body{
       display: block;
       padding: 2% 2% 2% 5%;
       border-radius: 10px;
-      width: 200px;
+      width: auto;
+      max-width: 300px;
       margin: 10px;
     }
     .todolist:nth-child(odd){
@@ -72,7 +73,7 @@ body{
       background: deepskyblue;
     }
     span{
-      margin-left: 20px;
+      margin: 0 20px 0 20px;
       color: white;
       font-size: 20px;
       font-weight: bold
@@ -128,4 +129,12 @@ body{
     color: white;
   }
 
+  .delete{
+    background: transparent;
+    border: transparent solid 2px;
+    margin-left: 10%;
+    height: 40px;
+    width: auto;
+    border-radius: 5px;
+  }
 }

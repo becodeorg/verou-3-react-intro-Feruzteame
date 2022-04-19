@@ -1,6 +1,7 @@
 
 import Footer from "./Footer";
 import React, { useState,useRef,useEffect } from 'react';
+import {v4 as uuid} from "uuid";
 
 import List from "./List";
 
@@ -14,20 +15,19 @@ function CreateTask() {
    
    const AddTask = () => {
 
-      if (task !== "") {
-        const taskCurrent = task.current
-        const timeCurrent = time.current
-        const taskValue = taskCurrent.value;
-        const timeValue = timeCurrent.value;
+      if (task !== "") { 
+        const taskValue = task.current.value;
+        const timeValue = time.current.value;
         const listObject = {
+          id: task.current.getAttribute('data-key'),
           task: taskValue,
-          time: timeValue
+          time: timeValue,
         }
         const newTaskList =  [...tasklist, listObject];
         setTaskList(newTaskList)
         console.log(newTaskList)
-        taskCurrent.value = "";
-        timeCurrent.value = "";
+        task.current.value = "";
+        time.current.value = "";
         return newTaskList
         }else{
         alert("Please add some text before add")
@@ -49,6 +49,12 @@ function CreateTask() {
   },[tasklist])
 
 // delete item 
+const deletetask = (e) => {
+  e.preventDefault();
+ let li = e.target.closest('li')
+ let id = li.getAttribute('data-id')
+  setTaskList(tasklist.filter((list) => list.id !== id));
+};
 
    return (
        <>
@@ -59,6 +65,7 @@ function CreateTask() {
                <input
                     type="text"
                     name="list"
+                    data-key={uuid()}
                     id="text"
                     ref={task}
                     placeholder="Add task here..."
@@ -74,7 +81,7 @@ function CreateTask() {
                
              </fieldset>
       </div>
-         <List tasklist={tasklist} />
+         <List tasklist={tasklist} deletetask={deletetask} />
          <Footer/>
       </>
        );
