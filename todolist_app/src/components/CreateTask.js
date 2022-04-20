@@ -34,8 +34,6 @@ function CreateTask() {
       }
       
     };
-
-
 // local storage
     useEffect(() => {
        const data = window.localStorage.getItem('List')
