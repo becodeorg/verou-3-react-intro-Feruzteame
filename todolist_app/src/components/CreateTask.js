@@ -1,5 +1,5 @@
 
-import Footer from "./Footer";
+
 import React, { useState,useRef,useEffect } from 'react';
 import {v4 as uuid} from "uuid";
 
@@ -82,7 +82,7 @@ const deletetask = (e) => {
              </fieldset>
       </div>
          <List tasklist={tasklist} deletetask={deletetask} />
-         <Footer/>
+       
       </>
        );
        
